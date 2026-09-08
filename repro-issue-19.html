@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>browser-mcp #19 — minimal React controlled-form repro</title>
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+  label { display: block; margin: 16px 0 4px; font-weight: 600; }
+  input, select { font-size: 16px; padding: 8px; width: 100%; box-sizing: border-box; }
+  button { font-size: 16px; padding: 10px 18px; margin-top: 16px; }
+  button:disabled { opacity: .4; }
+  pre { background: #f4f4f4; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>browser-mcp #19 repro</h1>
+<p>Controlled React form. <b>Pass</b> = React state updates + submit enables + <code>onChange</code> fires.</p>
+<div id="root"></div>
+<h2>Live probe (read with <code>browser_evaluate</code> / DevTools)</h2>
+<pre id="probe">loading…</pre>
+
+<script type="text/babel">
+const { useState } = React;
+
+function Form() {
+  const [name, setName] = useState("");
+  const [choice, setChoice] = useState("a");
+  const [nameChanges, setNameChanges] = useState(0);
+  const [selectChanges, setSelectChanges] = useState(0);
+
+  React.useEffect(() => {
+    window.__repro = {
+      get nameReactState() { return name; },
+      get choiceReactState() { return choice; },
+      get nameChanges() { return nameChanges; },
+      get selectChanges() { return selectChanges; },
+      get submitDisabled() { return document.getElementById("submit")?.disabled; },
+      get nameDomValue() { return document.getElementById("name")?.value; },
+      get selectDomValue() { return document.getElementById("choice")?.value; },
+    };
+    const probe = document.getElementById("probe");
+    if (probe) probe.textContent = JSON.stringify({
+      nameReactState: name,
+      nameDomValue: document.getElementById("name")?.value,
+      nameChanges, choiceReactState: choice,
+      selectDomValue: document.getElementById("choice")?.value,
+      selectChanges,
+      submitDisabled: document.getElementById("submit")?.disabled,
+    }, null, 2);
+  });
+
+  return (
+    <form onSubmit={e => e.preventDefault()}>
+      <label htmlFor="name">Name (controlled input, min 3 chars to enable submit)</label>
+      <input
+        id="name"
+        value={name}
+        placeholder="type here"
+        onChange={e => { setName(e.target.value); setNameChanges(c => c + 1); }}
+      />
+      <label htmlFor="choice">Choice (controlled select)</label>
+      <select
+        id="choice"
+        value={choice}
+        onChange={e => { setChoice(e.target.value); setSelectChanges(c => c + 1); }}
+      >
+        <option value="a">Alpha (a)</option>
+        <option value="b">Beta (b)</option>
+        <option value="c">Gamma (c)</option>
+      </select>
+      <button id="submit" type="submit" disabled={name.length < 3 || choice !== "b"}>
+        Submit (enables when name ≥ 3 chars AND choice = Beta)
+      </button>
+      <h3>Status</h3>
+      <pre>{JSON.stringify({ name, nameChanges, choice, selectChanges,
+        submitEnabled: !(name.length < 3 || choice !== "b") }, null, 2)}</pre>
+    </form>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Form />);
+</script>
+</body>
+</html>
