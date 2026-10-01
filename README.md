@@ -1,4 +1,11 @@
+> [!NOTE]
+> **Fork** de [Agent360dk/browser-mcp](https://github.com/Agent360dk/browser-mcp) — mantido por [@JADRT22](https://github.com/JADRT22) para uso próprio e contribuições upstream. Todo o crédito da arquitetura e das 34 tools é do projeto original.
+
 # Browser MCP by Agent360
+
+**mcp browser automation** · Your AI agent drives your real, logged-in Chrome — and works where headless tools die.
+
+> 🇧🇷 **PT-BR:** Dê ao seu agente de IA (Claude Code, Cursor, VS Code) controle do seu Chrome real — com seus logins, cookies e 2FA. Funciona onde Playwright/Puppeteer são bloqueados. 100% local, nada sai da sua máquina.
 
 [![npm version](https://img.shields.io/npm/v/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
 [![npm downloads](https://img.shields.io/npm/dw/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
