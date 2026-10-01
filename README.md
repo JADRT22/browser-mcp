@@ -5,7 +5,7 @@
 
 **mcp browser automation** · Your AI agent drives your real, logged-in Chrome — and works where headless tools die.
 
-> 🇧🇷 **PT-BR:** Dê ao seu agente de IA (Claude Code, Cursor, VS Code) controle do seu Chrome real — com seus logins, cookies e 2FA. Funciona onde Playwright/Puppeteer são bloqueados. 100% local, nada sai da sua máquina. *[Instalação abaixo](#⚡-copie-e-rode-em-30s--copy-paste-in-30s)*
+> 🇧🇷 **PT-BR:** Dê ao seu agente de IA (Claude Code, Cursor, VS Code) controle do seu Chrome real — com seus logins, cookies e 2FA. Funciona onde Playwright/Puppeteer são bloqueados. 100% local, nada sai da sua máquina. *[Instalação abaixo](#copy-paste-in-30s--copie-e-rode-em-30s)*
 
 [![npm version](https://img.shields.io/npm/v/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
 [![npm downloads](https://img.shields.io/npm/dw/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
