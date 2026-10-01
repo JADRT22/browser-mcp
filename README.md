@@ -19,6 +19,14 @@ The killer move: it hits a login wall, reads the verification code from your own
 
 34 tools. ~80% reCAPTCHA-checkbox solve with a human fallback for the rest. Multi-session color-coded tab groups. **MIT, free, and 100% local — nothing leaves your machine.**
 
+## ⚡ Copie e rode em 30s / Copy-paste in 30s
+
+```bash
+npx @agent360/browser-mcp install
+```
+
+Depois carregue a extensão uma vez em `chrome://extensions` → *Load unpacked* → `~/.browser-mcp/extension/`, reinicie seu cliente MCP e pronto. Detalhe passo a passo abaixo.
+
 ## Install — 2 steps (~60 seconds)
 
 ### Step 1: Configure the MCP server
