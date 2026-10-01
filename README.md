@@ -5,7 +5,7 @@
 
 **mcp browser automation** · Your AI agent drives your real, logged-in Chrome — and works where headless tools die.
 
-> 🇧🇷 **PT-BR:** Dê ao seu agente de IA (Claude Code, Cursor, VS Code) controle do seu Chrome real — com seus logins, cookies e 2FA. Funciona onde Playwright/Puppeteer são bloqueados. 100% local, nada sai da sua máquina.
+> 🇧🇷 **PT-BR:** Dê ao seu agente de IA (Claude Code, Cursor, VS Code) controle do seu Chrome real — com seus logins, cookies e 2FA. Funciona onde Playwright/Puppeteer são bloqueados. 100% local, nada sai da sua máquina. *[Instalação abaixo](#⚡-copie-e-rode-em-30s--copy-paste-in-30s)*
 
 [![npm version](https://img.shields.io/npm/v/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
 [![npm downloads](https://img.shields.io/npm/dw/@agent360/browser-mcp)](https://www.npmjs.com/package/@agent360/browser-mcp)
@@ -26,13 +26,13 @@ The killer move: it hits a login wall, reads the verification code from your own
 
 34 tools. ~80% reCAPTCHA-checkbox solve with a human fallback for the rest. Multi-session color-coded tab groups. **MIT, free, and 100% local — nothing leaves your machine.**
 
-## ⚡ Copie e rode em 30s / Copy-paste in 30s
+## ⚡ Copy-paste in 30s / Copie e rode em 30s
 
 ```bash
 npx @agent360/browser-mcp install
 ```
 
-Depois carregue a extensão uma vez em `chrome://extensions` → *Load unpacked* → `~/.browser-mcp/extension/`, reinicie seu cliente MCP e pronto. Detalhe passo a passo abaixo.
+Then load the extension once in `chrome://extensions` → *Load unpacked* → `~/.browser-mcp/extension/`, restart your MCP client and you're done. Depois carregue a extensão uma vez no Chrome (passo a passo abaixo).
 
 ## Install — 2 steps (~60 seconds)
 
